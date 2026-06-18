@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Olive Acupuncture | Acupuncture in Houston, TX | Pain Relief & Wellness</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --sage: #6B8A6A;
+      --sage-light: #8FAE8E;
+      --sage-dark: #4A6349;
+      --cream: #F7F4EF;
+      --warm-white: #FDFCFA;
+      --charcoal: #2C2C2C;
+      --mid: #5A5A5A;
+      --light-text: #8A8A8A;
+      --border: #E0DAD0;
+      --olive-accent: #9CAD5A;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--charcoal); background: var(--warm-white); }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(253,252,250,0.96); backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 48px; height: 72px;
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 500;
+      color: var(--sage-dark); letter-spacing: 0.02em; text-decoration: none;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .nav-logo-icon {
+      width: 32px; height: 32px;
+      background: var(--sage); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .nav-logo-icon svg { width: 18px; height: 18px; fill: white; }
+    .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+    .nav-links a {
+      font-size: 13px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--mid); text-decoration: none; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--sage-dark); }
+    .nav-cta {
+      background: var(--sage); color: white !important; padding: 10px 22px;
+      border-radius: 2px; font-size: 12px !important; font-weight: 500 !important;
+      letter-spacing: 0.1em !important; transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--sage-dark) !important; color: white !important; }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh; position: relative; display: flex; align-items: center;
+      overflow: hidden; padding-top: 72px;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background-image: url('https://images.pexels.com/photos/6659346/pexels-photo-6659346.jpeg?auto=compress&cs=tinysrgb&w=1600');
+      background-size: cover; background-position: center 30%;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(105deg, rgba(30,45,30,0.72) 0%, rgba(30,45,30,0.35) 60%, rgba(30,45,30,0.10) 100%);
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      max-width: 680px; margin-left: 10vw; color: white;
+    }
+    .hero-eyebrow {
+      font-size: 11px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(255,255,255,0.75); margin-bottom: 20px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .hero-eyebrow::before {
+      content: ''; display: block; width: 32px; height: 1px; background: rgba(255,255,255,0.5);
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif; font-size: clamp(48px, 6vw, 78px);
+      font-weight: 300; line-height: 1.1; margin-bottom: 28px; letter-spacing: -0.01em;
+    }
+    .hero h1 em { font-style: italic; color: rgba(200,220,160,0.9); }
+    .hero p {
+      font-size: 16px; line-height: 1.75; color: rgba(255,255,255,0.85);
+      max-width: 480px; margin-bottom: 44px; font-weight: 300;
+    }
+    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--sage); color: white; padding: 16px 36px;
+      text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: 0.1em;
+      text-transform: uppercase; border-radius: 2px; transition: background 0.2s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--sage-dark); }
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,0.6); color: white; padding: 16px 36px;
+      text-decoration: none; font-size: 13px; font-weight: 400; letter-spacing: 0.1em;
+      text-transform: uppercase; border-radius: 2px; transition: all 0.2s;
+      display: inline-block;
+    }
+    .btn-outline:hover { background: rgba(255,255,255,0.1); }
+    .hero-badges {
+      position: absolute; bottom: 48px; right: 10vw; z-index: 2;
+      display: flex; flex-direction: column; gap: 12px; text-align: right;
+    }
+    .hero-badge {
+      background: rgba(255,255,255,0.12); backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.2); padding: 14px 20px; border-radius: 4px;
+      color: white;
+    }
+    .hero-badge .num {
+      font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 500; display: block;
+    }
+    .hero-badge .lbl { font-size: 11px; letter-spacing: 0.1em; opacity: 0.75; text-transform: uppercase; }
+
+    /* SECTION COMMON */
+    section { padding: 100px 48px; }
+    .section-inner { max-width: 1200px; margin: 0 auto; }
+    .section-eyebrow {
+      font-size: 11px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--sage); margin-bottom: 16px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .section-eyebrow::before {
+      content: ''; display: block; width: 28px; height: 1px; background: var(--sage);
+    }
+    h2 {
+      font-family: 'Cormorant Garamond', serif; font-size: clamp(34px, 4vw, 52px);
+      font-weight: 300; line-height: 1.15; letter-spacing: -0.01em; color: var(--charcoal);
+    }
+
+    /* INTRO / PHILOSOPHY */
+    .philosophy { background: var(--cream); }
+    .philosophy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .philosophy-image {
+      border-radius: 4px; overflow: hidden; aspect-ratio: 4/5; position: relative;
+    }
+    .philosophy-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .philosophy-image-badge {
+      position: absolute; bottom: 24px; left: 24px;
+      background: var(--sage); color: white; padding: 12px 20px; border-radius: 2px;
+      font-size: 13px; font-weight: 500;
+    }
+    .philosophy-text h2 { margin-bottom: 24px; }
+    .philosophy-text p { color: var(--mid); line-height: 1.8; margin-bottom: 20px; font-size: 15px; }
+    .philosophy-text .tagline {
+      font-family: 'Cormorant Garamond', serif; font-size: 22px; font-style: italic;
+      color: var(--sage-dark); border-left: 3px solid var(--sage);
+      padding-left: 20px; margin: 32px 0; line-height: 1.5;
+    }
+
+    /* SERVICES */
+    .services { background: var(--warm-white); }
+    .services-header { text-align: center; max-width: 620px; margin: 0 auto 64px; }
+    .services-header .section-eyebrow { justify-content: center; }
+    .services-header .section-eyebrow::before { display: none; }
+    .services-header h2 { margin-bottom: 16px; }
+    .services-header p { color: var(--mid); line-height: 1.7; font-size: 15px; }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+    .service-card {
+      background: var(--cream); padding: 44px 36px; position: relative; overflow: hidden;
+      transition: transform 0.3s;
+    }
+    .service-card:hover { transform: translateY(-4px); }
+    .service-card::after {
+      content: ''; position: absolute; bottom: 0; left: 36px; right: 36px;
+      height: 2px; background: var(--sage); transform: scaleX(0); transition: transform 0.3s;
+    }
+    .service-card:hover::after { transform: scaleX(1); }
+    .service-icon {
+      width: 52px; height: 52px; background: var(--sage-dark);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      margin-bottom: 24px;
+    }
+    .service-icon svg { width: 24px; height: 24px; fill: white; }
+    .service-card h3 {
+      font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 500;
+      margin-bottom: 12px; color: var(--charcoal);
+    }
+    .service-card p { font-size: 14px; color: var(--mid); line-height: 1.75; }
+    .service-card .learn-more {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-top: 20px; font-size: 12px; font-weight: 500; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--sage-dark); text-decoration: none;
+    }
+
+    /* CONDITIONS */
+    .conditions { background: var(--sage-dark); color: white; }
+    .conditions .section-eyebrow { color: rgba(200,220,160,0.8); }
+    .conditions .section-eyebrow::before { background: rgba(200,220,160,0.5); }
+    .conditions h2 { color: white; margin-bottom: 16px; }
+    .conditions-intro { color: rgba(255,255,255,0.75); font-size: 15px; line-height: 1.75; max-width: 560px; margin-bottom: 56px; }
+    .conditions-list {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+    }
+    .condition-item {
+      padding: 28px 28px; border: 1px solid rgba(255,255,255,0.1);
+      transition: background 0.2s;
+    }
+    .condition-item:hover { background: rgba(255,255,255,0.05); }
+    .condition-item .icon { font-size: 28px; margin-bottom: 12px; display: block; }
+    .condition-item h4 {
+      font-family: 'Cormorant Garamond', serif; font-size: 19px; font-weight: 500;
+      margin-bottom: 8px; color: white;
+    }
+    .condition-item p { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.6; }
+
+    /* GALLERY / TREATMENTS VISUAL */
+    .treatments-visual { background: var(--cream); padding: 0; }
+    .treatments-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; height: 520px; }
+    .treatment-img { overflow: hidden; position: relative; }
+    .treatment-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s; }
+    .treatment-img:hover img { transform: scale(1.04); }
+    .treatment-img .caption {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: linear-gradient(0deg, rgba(30,45,30,0.85) 0%, transparent 100%);
+      color: white; padding: 32px 24px 20px;
+      font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+    }
+
+    /* ABOUT */
+    .about { background: var(--warm-white); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .about-image { position: relative; }
+    .about-image img {
+      width: 100%; border-radius: 4px; display: block;
+      box-shadow: 24px 24px 0 var(--cream);
+    }
+    .about-credentials {
+      position: absolute; top: -20px; right: -20px;
+      background: var(--sage-dark); color: white; padding: 20px 24px;
+      border-radius: 4px; text-align: center;
+    }
+    .about-credentials .cred-title {
+      font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.7; margin-bottom: 6px;
+    }
+    .about-credentials .cred-name {
+      font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 500;
+    }
+    .about-credentials .cred-sub { font-size: 12px; opacity: 0.7; margin-top: 4px; }
+    .about-text h2 { margin-bottom: 8px; }
+    .about-text .subtitle {
+      font-family: 'Cormorant Garamond', serif; font-size: 20px; font-style: italic;
+      color: var(--sage); margin-bottom: 24px;
+    }
+    .about-text p { color: var(--mid); font-size: 15px; line-height: 1.8; margin-bottom: 16px; }
+    .about-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+    .about-tag {
+      background: var(--cream); border: 1px solid var(--border);
+      padding: 8px 16px; border-radius: 2px; font-size: 12px; letter-spacing: 0.06em;
+      color: var(--sage-dark);
+    }
+
+    /* TESTIMONIALS */
+    .testimonials { background: var(--cream); }
+    .testimonials-header { text-align: center; margin-bottom: 56px; }
+    .testimonials-header .section-eyebrow { justify-content: center; }
+    .testimonials-header .section-eyebrow::before { display: none; }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .testimonial-card {
+      background: white; padding: 36px; border-radius: 4px;
+      border: 1px solid var(--border); position: relative;
+    }
+    .testimonial-card::before {
+      content: '"'; font-family: 'Cormorant Garamond', serif; font-size: 72px;
+      color: var(--sage); line-height: 1; position: absolute; top: 20px; left: 30px;
+      opacity: 0.3;
+    }
+    .stars { color: #E8A800; font-size: 14px; margin-bottom: 16px; }
+    .testimonial-card p { font-size: 14px; color: var(--mid); line-height: 1.8; margin-bottom: 24px; font-style: italic; }
+    .testimonial-author { font-weight: 500; font-size: 13px; color: var(--charcoal); }
+    .testimonial-condition { font-size: 12px; color: var(--sage); margin-top: 2px; }
+
+    /* WALK-INS BANNER */
+    .walkins {
+      background: var(--sage); color: white; padding: 64px 48px; text-align: center;
+    }
+    .walkins h2 {
+      color: white; margin-bottom: 12px;
+      font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 4vw, 52px);
+    }
+    .walkins p { font-size: 16px; opacity: 0.9; margin-bottom: 36px; max-width: 520px; margin-left: auto; margin-right: auto; }
+    .walkins .btn-primary { background: white; color: var(--sage-dark); }
+    .walkins .btn-primary:hover { background: var(--cream); }
+
+    /* LOCATION / HOURS */
+    .location { background: var(--warm-white); }
+    .location-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+    .location h2 { margin-bottom: 32px; }
+    .location-info p { font-size: 15px; color: var(--mid); line-height: 1.8; }
+    .hours-table { width: 100%; border-collapse: collapse; margin-top: 24px; }
+    .hours-table tr { border-bottom: 1px solid var(--border); }
+    .hours-table td { padding: 12px 0; font-size: 14px; color: var(--mid); }
+    .hours-table td:last-child { text-align: right; color: var(--charcoal); font-weight: 500; }
+    .hours-table .closed { color: var(--light-text); }
+    .map-placeholder {
+      background: var(--cream); border-radius: 4px; overflow: hidden; height: 340px;
+      display: flex; align-items: center; justify-content: center; flex-direction: column;
+      border: 1px solid var(--border); gap: 12px;
+    }
+    .map-placeholder .addr {
+      font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--sage-dark);
+      text-align: center; padding: 0 24px;
+    }
+    .map-placeholder .sub { font-size: 13px; color: var(--light-text); }
+    .map-link {
+      margin-top: 8px; color: var(--sage-dark); font-size: 13px; font-weight: 500;
+      text-decoration: none; letter-spacing: 0.06em;
+      padding: 10px 20px; border: 1px solid var(--sage-dark); border-radius: 2px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #1E2D1E; color: rgba(255,255,255,0.75); padding: 64px 48px 32px;
+    }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    .footer-brand .logo {
+      font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 500;
+      color: white; margin-bottom: 16px; display: block;
+    }
+    .footer-brand p { font-size: 14px; line-height: 1.7; max-width: 240px; }
+    .footer-col h4 {
+      font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
+      color: rgba(255,255,255,0.5); margin-bottom: 20px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 12px; }
+    .footer-col a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+    .footer-col a:hover { color: white; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 12px; color: rgba(255,255,255,0.4);
+    }
+
+    /* Cookie Bar */
+    .cookie-bar {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 999;
+      background: var(--charcoal); color: white; padding: 16px 48px;
+      display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    }
+    .cookie-bar p { font-size: 13px; opacity: 0.8; max-width: 680px; line-height: 1.5; }
+    .cookie-bar button {
+      background: var(--sage); color: white; border: none; padding: 10px 24px;
+      font-size: 13px; font-weight: 500; border-radius: 2px; cursor: pointer;
+      white-space: nowrap; flex-shrink: 0;
+    }
+
+    @media (max-width: 960px) {
+      nav { padding: 0 24px; }
+      .nav-links { display: none; }
+      section { padding: 72px 24px; }
+      .philosophy-grid, .about-grid, .location-grid { grid-template-columns: 1fr; gap: 40px; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .conditions-list { grid-template-columns: 1fr 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .treatments-grid { grid-template-columns: 1fr; height: auto; }
+      .treatment-img { height: 280px; }
+      .hero-badges { display: none; }
+      .cookie-bar { padding: 16px 24px; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-icon">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15v-4H7l5-8v4h4l-5 8z"/>
+      </svg>
+    </div>
+    Olive Acupuncture
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#conditions">Conditions</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#location">Contact</a></li>
+    <li><a href="https://oliveacupuncture.janeapp.com/" target="_blank" class="nav-cta">Book Now</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Houston, Texas · Licensed Acupuncturist</div>
+    <h1>Feel Better<br>the <em>Natural</em> Way</h1>
+    <p>Holistic acupuncture care for pain relief, stress, and whole-body wellness. Rooted in Traditional Chinese Medicine — delivered with modern compassion.</p>
+    <div class="hero-actions">
+      <a href="https://oliveacupuncture.janeapp.com/" target="_blank" class="btn-primary">Book an Appointment</a>
+      <a href="#services" class="btn-outline">Our Services</a>
+    </div>
+  </div>
+  <div class="hero-badges">
+    <div class="hero-badge">
+      <span class="num">5★</span>
+      <span class="lbl">Google Rating</span>
+    </div>
+    <div class="hero-badge">
+      <span class="num">15+</span>
+      <span class="lbl">Years Experience</span>
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section class="philosophy" id="about">
+  <div class="section-inner">
+    <div class="philosophy-grid">
+      <div class="philosophy-image">
+        <img src="https://images.pexels.com/photos/8942991/pexels-photo-8942991.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Acupuncture treatment session" />
+        <div class="philosophy-image-badge">Walk-Ins Welcome</div>
+      </div>
+      <div class="philosophy-text">
+        <div class="section-eyebrow">Our Philosophy</div>
+        <h2>Holistic Healing for Body, Mind & Spirit</h2>
+        <div class="tagline">"We don't just treat symptoms — we address the root cause."</div>
+        <p>At Olive Acupuncture clinic in Houston, Texas, we follow a holistic approach to healthcare. We firmly believe in the body's inherent capacity to heal itself. Our objective is to provide support and enhance this natural healing process through acupuncture and other holistic therapies.</p>
+        <p>Traditional Chinese Medicine considers the body a complex system controlled and balanced by individual organs and energetic pathways, or meridians. We are dedicated not only to alleviating the symptoms that brought you to us but also to addressing any underlying health issues impacting your overall well-being.</p>
+        <p>Proudly serving patients from Houston, Westchase, Alief, Sugar Land, and surrounding areas.</p>
+        <a href="https://oliveacupuncture.janeapp.com/" target="_blank" class="btn-primary" style="margin-top: 8px;">Schedule a Visit</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-inner">
+    <div class="services-header">
+      <div class="section-eyebrow">What We Offer</div>
+      <h2>Our Treatments</h2>
+      <p>Comprehensive therapies rooted in Traditional Chinese Medicine, tailored to your unique health goals and concerns.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2l1.09 3.26L16 4l-1.64 2.91L17 9l-3.27-.36L12 12l-1.73-3.36L7 9l2.64-2.09L8 4l2.91 1.26z"/></svg>
+        </div>
+        <h3>Acupuncture</h3>
+        <p>Using the twelve meridians to balance the body's restorative Qi, acupuncture returns the body to its natural equilibrium. Immediate and long-term pain relief through precise needle placement.</p>
+        <a href="#" class="learn-more">Learn more →</a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
+        </div>
+        <h3>Electro-Acupuncture</h3>
+        <p>FDA-approved electrical stimulation applied to acupuncture needles. Improves healing of injured joints and muscles, increases pain-relieving endorphin release, and stimulates balanced nervous system function.</p>
+        <a href="#" class="learn-more">Learn more →</a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M9.5 16C7 16 5 14 5 11.5S7 7 9.5 7c1.5 0 2.8.7 3.7 1.8L15 10.5v-6l-1.2.4C12.7 3.7 11.2 3 9.5 3 5.36 3 2 6.36 2 10.5S5.36 18 9.5 18c2.7 0 5.1-1.44 6.45-3.6l-1.77-1.04C13.2 14.96 11.5 16 9.5 16zm10.5-3h-2v2h-2v-2h-2v-2h2v-2h2v2h2v2z"/></svg>
+        </div>
+        <h3>Cupping Therapy</h3>
+        <p>Small glass or plastic cups create suction on your skin to stimulate circulation in superficial muscle layers. Effective for arthritis, musculoskeletal pain, headaches, colds, and coughs.</p>
+        <a href="#" class="learn-more">Learn more →</a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M13.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM9.8 8.9L7 23h2.1l1.8-8 2.1 2v6h2v-7.5l-2.1-2 .6-3C14.8 12 16.8 13 19 13v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1L6 8.3V13h2V9.6l1.8-.7"/></svg>
+        </div>
+        <h3>Moxibustion</h3>
+        <p>Therapeutic heat therapy using Mugwort and other herbs, applied directly or indirectly to acupuncture points. Especially effective for cold, achy joints, scar tissue, and immune system support.</p>
+        <a href="#" class="learn-more">Learn more →</a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+        </div>
+        <h3>Gua Sha</h3>
+        <p>A traditional Chinese healing method using a smooth-edged tool to stroke the skin, promoting circulation and releasing tension. Raises petechiae under the skin to signal improved blood flow.</p>
+        <a href="#" class="learn-more">Learn more →</a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+        </div>
+        <h3>Auricular Acupuncture</h3>
+        <p>The auricle of the ear maps to the entire human body. Ear needles, seeds, or magnets stimulate points to relieve pain, support addiction recovery, PTSD, insomnia, and stress management.</p>
+        <a href="#" class="learn-more">Learn more →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONDITIONS -->
+<section class="conditions" id="conditions">
+  <div class="section-inner">
+    <div class="section-eyebrow">We Can Help With</div>
+    <h2>Conditions We Treat</h2>
+    <p class="conditions-intro">Whether you're struggling with chronic pain, mental wellness, or digestive issues — our licensed acupuncturists provide comprehensive, evidence-informed care.</p>
+    <div class="conditions-list">
+      <div class="condition-item">
+        <span class="icon">🦴</span>
+        <h4>Chronic Pain</h4>
+        <p>Neck, back, knee & joint pain, neuropathy, sports injuries, and headaches/migraines.</p>
+      </div>
+      <div class="condition-item">
+        <span class="icon">🧠</span>
+        <h4>Stress & Anxiety</h4>
+        <p>Depression, anxiety, insomnia, PTSD, and emotional fatigue — treated holistically.</p>
+      </div>
+      <div class="condition-item">
+        <span class="icon">🫀</span>
+        <h4>Digestive Health</h4>
+        <p>IBS, bloating, poor digestion, and gut imbalances addressed through root-cause care.</p>
+      </div>
+      <div class="condition-item">
+        <span class="icon">🌸</span>
+        <h4>Women's Health</h4>
+        <p>Fertility support, menstrual disorders, menopause symptoms, and hormonal balance.</p>
+      </div>
+      <div class="condition-item">
+        <span class="icon">⚡</span>
+        <h4>Fatigue & Energy</h4>
+        <p>Chronic fatigue, low energy, and burnout treated through Qi balance restoration.</p>
+      </div>
+      <div class="condition-item">
+        <span class="icon">🤧</span>
+        <h4>Immune Support</h4>
+        <p>Allergies, frequent colds, and immune deficiencies supported through herbal and needle therapy.</p>
+      </div>
+      <div class="condition-item">
+        <span class="icon">🏃</span>
+        <h4>Sports Recovery</h4>
+        <p>Accelerated healing from sprains, strains, and overuse injuries through enhanced blood flow.</p>
+      </div>
+      <div class="condition-item">
+        <span class="icon">🧬</span>
+        <h4>Stroke Recovery</h4>
+        <p>Neurological rehabilitation support including Bell's Palsy recovery and motor function improvement.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY / VISUAL TREATMENTS -->
+<div class="treatments-visual">
+  <div class="treatments-grid">
+    <div class="treatment-img">
+      <img src="https://images.pexels.com/photos/6663371/pexels-photo-6663371.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Acupuncture needles treatment"/>
+      <div class="caption">Acupuncture</div>
+    </div>
+    <div class="treatment-img">
+      <img src="https://images.pexels.com/photos/8942908/pexels-photo-8942908.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Cupping therapy"/>
+      <div class="caption">Cupping Therapy</div>
+    </div>
+    <div class="treatment-img">
+      <img src="https://images.pexels.com/photos/3865792/pexels-photo-3865792.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Wellness clinic interior"/>
+      <div class="caption">Private Treatment Rooms</div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT JOHN HAN -->
+<section class="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-image">
+        <img src="https://images.pexels.com/photos/5327585/pexels-photo-5327585.jpeg?auto=compress&cs=tinysrgb&w=700" alt="John Han, Licensed Acupuncturist"/>
+        <div class="about-credentials">
+          <div class="cred-title">Your Practitioner</div>
+          <div class="cred-name">John Han</div>
+          <div class="cred-sub">L.Ac. · M.S. Oriental Medicine</div>
+        </div>
+      </div>
+      <div class="about-text">
+        <div class="section-eyebrow">Meet Your Practitioner</div>
+        <h2>John Han, L.Ac.</h2>
+        <div class="subtitle">Master of Oriental Medicine · South Baylo University</div>
+        <p>Growing up in South Korea, John was immersed in the rich cultural traditions of Oriental medicine, igniting a lifelong passion for this ancient healing art. He pursued his degree at South Baylo University in Anaheim, California, earning his Master's degree in Oriental Medicine and earning licensure through the California Acupuncture Board.</p>
+        <p>After completing his studies, John returned to Korea to deepen his practical experience and joined a non-profit acupuncture association, volunteering services to underprivileged communities. Since 2008, John has been providing effective treatments across Southern California and now brings his expertise to Houston, Texas.</p>
+        <p>With Olive Acupuncture Clinic, John is dedicated to compassionate, patient-centered care — helping individuals achieve optimal health and enhance their quality of life through holistic Oriental medicine.</p>
+        <div class="about-tags">
+          <span class="about-tag">Licensed · Texas Acupuncture Board</span>
+          <span class="about-tag">Master's Degree in Oriental Medicine</span>
+          <span class="about-tag">Clean Needle Technique Certified</span>
+          <span class="about-tag">OSHA Standards Compliant</span>
+          <span class="about-tag">Since 2008</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="section-inner">
+    <div class="testimonials-header">
+      <div class="section-eyebrow">Patient Stories</div>
+      <h2>What Our Patients Say</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>I received treatment for Bell's Palsy — 8 sessions total. After just the second treatment, a noticeable improvement was visible. John was very knowledgeable and consistently checked on my comfort. I would recommend his services to anyone.</p>
+        <div class="testimonial-author">David M.</div>
+        <div class="testimonial-condition">Bell's Palsy Recovery</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>Exceptional experience. John is very attentive and makes sure you feel at ease from the moment you walk in. I've seen a 90% recovery after 8 sessions for Bell's Palsy. I am so grateful for the compassionate care received here.</p>
+        <div class="testimonial-author">Sarah K.</div>
+        <div class="testimonial-condition">Bell's Palsy · 90% Recovery</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>The clinic is incredibly clean and organized. Dr. Han is gentle, patient, and professional — he takes the time to listen to your problems. I'm scared of needles but his gentleness makes them magical. I don't feel pain at all.</p>
+        <div class="testimonial-author">Lisa T.</div>
+        <div class="testimonial-condition">Chronic Muscle Pain</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WALK-INS BANNER -->
+<div class="walkins">
+  <h2>Walk-Ins Welcome!</h2>
+  <p>Feel free to visit during normal business hours. No appointment needed to experience the benefits of acupuncture.</p>
+  <a href="https://oliveacupuncture.janeapp.com/" target="_blank" class="btn-primary">Book Online</a>
+</div>
+
+<!-- LOCATION & HOURS -->
+<section class="location" id="location">
+  <div class="section-inner">
+    <div class="location-grid">
+      <div class="location-info">
+        <div class="section-eyebrow">Find Us</div>
+        <h2>Location & Hours</h2>
+        <p style="margin-top: 20px;"><strong>Olive Acupuncture Clinic</strong><br>
+        10925 Beechnut St. B205<br>
+        Houston, TX 77072</p>
+        <p style="margin-top: 16px;">📞 <strong>(713) 000-0000</strong></p>
+        <p style="margin-top: 8px;">✉ info@oliveacupuncture.org</p>
+
+        <table class="hours-table">
+          <tr><td>Monday – Friday</td><td>9:00 AM – 6:00 PM</td></tr>
+          <tr><td>Saturday</td><td>9:00 AM – 4:00 PM</td></tr>
+          <tr><td>Sunday</td><td class="closed">Closed</td></tr>
+        </table>
+
+        <a href="https://oliveacupuncture.janeapp.com/" target="_blank" class="btn-primary" style="margin-top: 32px; display: inline-block;">Book Your Appointment</a>
+      </div>
+      <div>
+        <div class="map-placeholder">
+          <span style="font-size: 40px;">📍</span>
+          <div class="addr">10925 Beechnut St. B205<br>Houston, TX 77072</div>
+          <div class="sub">Westchase District · Easy Parking</div>
+          <a href="https://maps.google.com/?q=10925+Beechnut+St+B205+Houston+TX+77072" target="_blank" class="map-link">Get Directions →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="logo">Olive Acupuncture</span>
+      <p>Safe and effective acupuncture therapies that maximize wellness benefits while minimizing risk. Serving Houston since 2008.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#">Acupuncture</a></li>
+        <li><a href="#">Electro-Acupuncture</a></li>
+        <li><a href="#">Cupping Therapy</a></li>
+        <li><a href="#">Moxibustion</a></li>
+        <li><a href="#">Gua Sha</a></li>
+        <li><a href="#">Auricular Acupuncture</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Conditions</h4>
+      <ul>
+        <li><a href="#">Chronic Pain</a></li>
+        <li><a href="#">Stress & Anxiety</a></li>
+        <li><a href="#">Mental Health</a></li>
+        <li><a href="#">Pain Management</a></li>
+        <li><a href="#">Women's Health</a></li>
+        <li><a href="#">Stroke Recovery</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Clinic</h4>
+      <ul>
+        <li><a href="#">About John Han</a></li>
+        <li><a href="#">Gallery</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Contact & Hours</a></li>
+        <li><a href="https://oliveacupuncture.janeapp.com/" target="_blank">Book Online</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2023 Olive Acupuncture Clinic in Houston, Texas · All Rights Reserved.</span>
+    <span>10925 Beechnut St. B205, Houston, TX 77072</span>
+  </div>
+</footer>
+
+<!-- COOKIE BAR -->
+<div class="cookie-bar" id="cookieBar">
+  <p>We use cookies to analyze website traffic and optimize your website experience. By accepting our use of cookies, your data will be aggregated with all other user data.</p>
+  <button onclick="document.getElementById('cookieBar').style.display='none'">Accept</button>
+</div>
+
+</body>
+</html>
